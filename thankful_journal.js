@@ -8,8 +8,6 @@
   const asked = "asked"
   let clicks = 0
   
-
-
   function * moveToNextQuestion(sections, asking, notAsked, asked) {
     for (let i = 0; i < sections.length; i++) {
       // element.classList.remove(removeOne)
