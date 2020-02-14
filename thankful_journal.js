@@ -1,11 +1,17 @@
+// import * as counter from './test.js';
+import { getDate } from './test.js';
+
+console.log(getDate);
+
+  
   //the constants from the html doc
-  const button = document.querySelector(".button");
-  const allPrompts = document.querySelectorAll(".not-asked");
-  const allAnswers = document.querySelectorAll("#user-response");
-  const finalAnswers = []
-  const notAsked = "not-asked"
-  const asking = "asking"
-  const asked = "asked"
+  let button = document.querySelector(".button");
+  let allPrompts = document.querySelectorAll(".not-asked");
+  let allAnswers = document.querySelectorAll("#user-response");
+  let finalAnswers = []
+  let notAsked = "not-asked"
+  let asking = "asking"
+  let asked = "asked"
   let clicks = 0
   
   function * moveToNextQuestion(sections, asking, notAsked, asked) {
@@ -35,17 +41,17 @@
 
   }
 
-  const addClassToSections = moveToNextQuestion(allPrompts, asking, notAsked, asked);
+  let addClassToSections = moveToNextQuestion(allPrompts, asking, notAsked, asked);
 
   //this compiles all of the user generated answers into one array
-  getTheAnswers = () => {
+  let getTheAnswers = () => {
     for (let i = 0; i < allAnswers.length; i++) {
       finalAnswers.push(allAnswers[i].value)
     }
     return finalAnswers
   }
 
-  downloadFile = (getTheAnswers) => {
+  let downloadFile = (getTheAnswers) => {
     let fileElement = document.createElement("a");
     fileElement.style.display = "none";
     fileElement.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(getTheAnswers()));
@@ -59,7 +65,7 @@
 
   }
 
-  const reloadWindow = async(downloadFile) => {
+  let reloadWindow = async(downloadFile) => {
     await downloadFile
     await alert("Your thankful thoughts have downloaded. This window will reload to reset your next thoughtful notes")
     window.location.reload();
